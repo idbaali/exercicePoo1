@@ -1,0 +1,883 @@
+<!DOCTYPE html><html><head>
+      <title>TP - POO avec PHP</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\thoma\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.7\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url("data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAfIAAsAAAAADDAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFZW7kosY21hcAAAAYAAAADTAAACjtP6ytBnbHlmAAACVAAAAxgAAAQ4zRtvlGhlYWQAAAVsAAAALwAAADYRwZsnaGhlYQAABZwAAAAcAAAAJAeKAzxobXR4AAAFuAAAABIAAAA8OGQAAGxvY2EAAAXMAAAAIAAAACAG5AfwbWF4cAAABewAAAAfAAAAIAEfAERuYW1lAAAGDAAAAVcAAAKFkAhoC3Bvc3QAAAdkAAAAYgAAAK2vz7wkeJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2BkPsQ4gYGVgYOpk+kMAwNDP4RmfM1gxMjBwMDEwMrMgBUEpLmmMDgwVLy4xKzzX4chhrmK4QpQmBEkBwAZygyweJzFkr0NwjAQhZ+TEP6CRUfHBEwRUWaQTICyQbpMwRCskA5RUIONxG0RnnNpKAIV4qzPku/8c353ACYAYrIjCWCuMAh2ptf0/hiL3p/gyPUWa3osqlt0L1zu9r71z8dGrJRykFoauXQd932Lj5vhG+MjxGeYI8MKETObMpslf5EyP8tg+vHun5r539PvlvXzaVhRFVQDTPEWKVQR90KhnnC5Ek67vUKN4VuFasM/ldARj43CCkCsEjpJSoVVgRyU0GVSK6wUpFFCx8lFgX0BiXpRPQB4nE2TTWjcRhTH3xttpDhxN7uxPlp3u/FK7moRPixafRijNosxSw/LUsIwNcaEHPZggo/FmEKMCKWU4kNOOftQSlhE8alnH0Ix9BqWnHooPRrTQ0+mnu2bXTu2pPdGM9LM/6c3fwECTM4gBBMYQNqxzLrZAjqYSlqu2TAHZQA0/DQJH6FtzqGDnvbt4Ggwvzw/nL8EfH8kW0fsuRqhgWXZnY7M1picaUL7Du5BHeDzMIl83dAt016wH1qmvtSMo5R6YRJHTR//FXsff/nj/tc/5K9P5d+nP22+fFK5u7v3K39SW3y+OtDKO3L85vD09PD9z5X17a2N1g4tqk01RlqX7gyoEmnsWQtVr4rtZMmukEaFBZxzefkCn11cyKMLZgshRwgTYNoLNXCBz2ja7HvZG7hDpPSNfoo5vs0knK/9hb+rNpu+8kHPgk/Ao4kK3tWtTpSEtvkA9c+wE6UaUdwieNkaHg55tBEtRiEPw1s0+FtrtTcc9two2lhMknV7PZF/cs6+uUFTmpTGbEx7sQCPSLOttHS3GRltqp7SNzVSKzl6aWnZT/CX5k6/v9N3Hh8fHBwffJVjhrC6OgH5dkIt/tPsq+d/PD5Qz7G7efzq1THFjdZVPe/N6ulQ3JnDWSE5junsFsVIiFwL/htf1S5gJ3BfOcUxfHKLnzqpFpyfZ9cX+/5WB6a+Y0pHpzkNrYNVDwMsikK+y7WuLCRg/oFHkA8VT3rDg5ZnU6ktzzINymV0m74Xd5pfIGXyFeVEQSShkzqG7TBBa2OxVRKitLXv7h3uuftXnXq7lz2tZ/WnWa9dx9dCjDhHzmuVQATlmljr9dZErUydSo2Hbi/b1vXtrOeGCk2/8s3ZlO8+ueJT8BVlw5pGw2oYccdSiHHqx0RlabHqdNR9jAETl6PreJcPBnnfpTLnOQ8C3OV8AmQGzouV1iZdeb5SSIoVc8W8/kcDtksUH5FrU6/aqBqNWcMEzxG4DAQ14qRQhi9mWU0rzepKezbjfgCwQKxVYq5ajRgpRqy45CqwkJydcEkbTkvRz8P5/2ZpDTN4nGNgZGBgAOKb6v+/xvPbfGXgZmEAgeuB2kkI+v8bFgbmKiCXg4EJJAoAPyAKhQB4nGNgZGBg1vmvwxDDwgACQJKRARXwAwAzZQHQeJxjYQCCFAYGFgbSMQAcWACdAAAAAAAAAAwALgBgAIQAmADSAQgBIgE8AVABoAHeAfwCHHicY2BkYGDgZ7BgYGMAASYg5gJCBob/YD4DAA/hAWQAeJxlkbtuwkAURMc88gApQomUJoq0TdIQzEOpUDokKCNR0BuzBiO/tF6QSJcPyHflE9Klyyekz2CuG8cr7547M3d9JQO4xjccnJ57vid2cMHqxDWc40G4Tv1JuEF+Fm6ijRfhM+oz4Ra6eBVu4wZvvMFpXLIa40PYQQefwjVc4Uu4Tv1HuEH+FW7i1mkKn6Hj3Am3sHC6wm08Ou8tpSZGe1av1PKggjSxPd8zJtSGTuinyVGa6/Uu8kxZludCmzxMEzV0B6U004k25W35fj2yNlCBSWM1paujKFWZSbfat+7G2mzc7weiu34aczzFNYGBhgfLfcV6iQP3ACkSaj349AxXSN9IT0j16JepOb01doiKbNWt1ovippz6sVYYwsXgX2rGVFIkq7Pl2PNrI6qW6eOshj0xaSq9mpNEZIWs8LZUfOouNkVXxp/d5woqebeYIf4D2J1ywQB4nG3LOw6AIBAE0B384B+PAkgEa+QwNnYmHt+EpXSal5lkSBBnoP8oCFSo0aCFRIceA0ZMmLFAYSW88rmvtMUjG3RiQ9HvpfusM6zWNmtc5H/iPewha50tOt5PS/QBx2IeSwAA") format("woff");
+}
+
+.admonition {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+  position: relative;
+  margin: 1.5625em 0;
+  padding: 0 1.2rem;
+  border-left: .4rem solid rgba(68, 138, 255, .8);
+  border-radius: .2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  overflow: auto;
+}
+
+.admonition>p {
+  margin-top: .8rem;
+}
+
+.admonition>.admonition-title {
+  margin: 0 -1.2rem;
+  padding: .8rem 1.2rem .8rem 3.6rem;
+  border-bottom: 1px solid rgba(68, 138, 255, .2);
+  background-color: rgba(68, 138, 255, .1);
+  font-weight: 700;
+}
+
+.admonition>.admonition-title:before {
+  position: absolute;
+  left: 1.2rem;
+  font-size: 1.5rem;
+  color: rgba(68, 138, 255, .8);
+  content: "\E3C9";
+}
+
+.admonition>.admonition-title:before {
+  font-family: Material Icons;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  text-transform: none;
+  white-space: nowrap;
+  speak: none;
+  word-wrap: normal;
+  direction: ltr;
+}
+
+.admonition.summary,
+.admonition.abstract,
+.admonition.tldr {
+  border-left-color: rgba(0, 176, 255, .8);
+}
+
+.admonition.summary>.admonition-title,
+.admonition.abstract>.admonition-title,
+.admonition.tldr>.admonition-title {
+  background-color: rgba(0, 176, 255, .1);
+  border-bottom-color: rgba(0, 176, 255, .2);
+}
+
+.admonition.summary>.admonition-title:before,
+.admonition.abstract>.admonition-title:before,
+.admonition.tldr>.admonition-title:before {
+  color: rgba(0, 176, 255, 1);
+  ;
+  content: "\E8D2";
+}
+
+.admonition.hint,
+.admonition.tip {
+  border-left-color: rgba(0, 191, 165, .8);
+}
+
+.admonition.hint>.admonition-title,
+.admonition.tip>.admonition-title {
+  background-color: rgba(0, 191, 165, .1);
+  border-bottom-color: rgba(0, 191, 165, .2);
+}
+
+.admonition.hint>.admonition-title:before,
+.admonition.tip>.admonition-title:before {
+  color: rgba(0, 191, 165, 1);
+  content: "\E80E";
+}
+
+.admonition.info,
+.admonition.todo {
+  border-left-color: rgba(0, 184, 212, .8);
+}
+
+.admonition.info>.admonition-title,
+.admonition.todo>.admonition-title {
+  background-color: rgba(0, 184, 212, .1);
+  border-bottom-color: rgba(0, 184, 212, .2);
+}
+
+.admonition.info>.admonition-title:before,
+.admonition.todo>.admonition-title:before {
+  color: rgba(0, 184, 212, 1);
+  ;
+  content: "\E88E";
+}
+
+.admonition.success,
+.admonition.check,
+.admonition.done {
+  border-left-color: rgba(0, 200, 83, .8);
+}
+
+.admonition.success>.admonition-title,
+.admonition.check>.admonition-title,
+.admonition.done>.admonition-title {
+  background-color: rgba(0, 200, 83, .1);
+  border-bottom-color: rgba(0, 200, 83, .2);
+}
+
+.admonition.success>.admonition-title:before,
+.admonition.check>.admonition-title:before,
+.admonition.done>.admonition-title:before {
+  color: rgba(0, 200, 83, 1);
+  ;
+  content: "\E876";
+}
+
+.admonition.question,
+.admonition.help,
+.admonition.faq {
+  border-left-color: rgba(100, 221, 23, .8);
+}
+
+.admonition.question>.admonition-title,
+.admonition.help>.admonition-title,
+.admonition.faq>.admonition-title {
+  background-color: rgba(100, 221, 23, .1);
+  border-bottom-color: rgba(100, 221, 23, .2);
+}
+
+.admonition.question>.admonition-title:before,
+.admonition.help>.admonition-title:before,
+.admonition.faq>.admonition-title:before {
+  color: rgba(100, 221, 23, 1);
+  ;
+  content: "\E887";
+}
+
+.admonition.warning,
+.admonition.attention,
+.admonition.caution {
+  border-left-color: rgba(255, 145, 0, .8);
+}
+
+.admonition.warning>.admonition-title,
+.admonition.attention>.admonition-title,
+.admonition.caution>.admonition-title {
+  background-color: rgba(255, 145, 0, .1);
+  border-bottom-color: rgba(255, 145, 0, .2);
+}
+
+.admonition.attention>.admonition-title:before {
+  color: rgba(255, 145, 0, 1);
+  content: "\E417";
+}
+
+.admonition.warning>.admonition-title:before,
+.admonition.caution>.admonition-title:before {
+  color: rgba(255, 145, 0, 1);
+  content: "\E002";
+}
+
+.admonition.failure,
+.admonition.fail,
+.admonition.missing {
+  border-left-color: rgba(255, 82, 82, .8);
+}
+
+.admonition.failure>.admonition-title,
+.admonition.fail>.admonition-title,
+.admonition.missing>.admonition-title {
+  background-color: rgba(255, 82, 82, .1);
+  border-bottom-color: rgba(255, 82, 82, .2);
+}
+
+.admonition.failure>.admonition-title:before,
+.admonition.fail>.admonition-title:before,
+.admonition.missing>.admonition-title:before {
+  color: rgba(255, 82, 82, 1);
+  ;
+  content: "\E14C";
+}
+
+.admonition.danger,
+.admonition.error,
+.admonition.bug {
+  border-left-color: rgba(255, 23, 68, .8);
+}
+
+.admonition.danger>.admonition-title,
+.admonition.error>.admonition-title,
+.admonition.bug>.admonition-title {
+  background-color: rgba(255, 23, 68, .1);
+  border-bottom-color: rgba(255, 23, 68, .2);
+}
+
+.admonition.danger>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E3E7";
+}
+
+.admonition.error>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E14C";
+}
+
+.admonition.bug>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E868";
+}
+
+.admonition.example,
+.admonition.snippet {
+  border-left-color: rgba(0, 184, 212, .8);
+}
+
+.admonition.example>.admonition-title,
+.admonition.snippet>.admonition-title {
+  background-color: rgba(0, 184, 212, .1);
+  border-bottom-color: rgba(0, 184, 212, .2);
+}
+
+.admonition.example>.admonition-title:before,
+.admonition.snippet>.admonition-title:before {
+  color: rgba(0, 184, 212, 1);
+  ;
+  content: "\E242";
+}
+
+.admonition.quote,
+.admonition.cite {
+  border-left-color: rgba(158, 158, 158, .8);
+}
+
+.admonition.quote>.admonition-title,
+.admonition.cite>.admonition-title {
+  background-color: rgba(158, 158, 158, .1);
+  border-bottom-color: rgba(158, 158, 158, .2);
+}
+
+.admonition.quote>.admonition-title:before,
+.admonition.cite>.admonition-title:before {
+  color: rgba(158, 158, 158, 1);
+  ;
+  content: "\E244";
+}
+
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <p><strong>Auteur</strong> : TL<br>
+<strong>Cr&#xE9;ation</strong> : 2020-05-15<br>
+<strong>Modification</strong> : 2023-01-25</p>
+<h1 class="mume-header" id="-tp---la-poo-avec-php-">TP - La POO avec PHP</h1>
+
+<h2 class="mume-header" id="-partie-1-">Partie 1</h2>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour r&#xE9;aliser cette partie, vous devez avoir vu les chapitres du cours &#xAB; Les classes &#xBB; et &#xAB; L&#x2019;h&#xE9;ritage &#xBB;.</p>
+</div>
+<p>Cr&#xE9;er les cinq classes du sch&#xE9;ma suivant en tenant compte de leur h&#xE9;ritage. Toutes les m&#xE9;thodes sont publiques et les attributs priv&#xE9;s.</p>
+<p align="center" style="zoom:1.6"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="409px" preserveAspectRatio="none" style="width:628px;height:409px;background:#FFFFFF;" version="1.1" viewBox="0 0 628 409" width="628px" zoomAndPan="magnify"><defs><filter height="300%" id="f5ioey0fbbus7" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[b157ec9f1808b89c668ab80b58f83736]
+class Vehicule--><rect codeline="8" fill="#FEFECE" filter="url(#f5ioey0fbbus7)" height="103.3438" id="Vehicule" style="stroke:#A80036;stroke-width:1.5;" width="197" x="194.5" y="7"/><ellipse cx="265.25" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M268.0156,18.875 Q268.1719,18.6563 268.3594,18.5469 Q268.5469,18.4375 268.7656,18.4375 Q269.1406,18.4375 269.375,18.6953 Q269.6094,18.9531 269.6094,19.5625 L269.6094,21.0156 Q269.6094,21.625 269.375,21.8906 Q269.1406,22.1563 268.7656,22.1563 Q268.4219,22.1563 268.2188,21.9531 Q268.0156,21.7656 267.9063,21.25 Q267.8594,20.8906 267.6719,20.7031 Q267.3438,20.3281 266.7344,20.1094 Q266.125,19.8906 265.5,19.8906 Q264.7344,19.8906 264.1016,20.2188 Q263.4688,20.5469 262.9766,21.2969 Q262.4844,22.0469 262.4844,23.0781 L262.4844,24.1719 Q262.4844,25.4063 263.375,26.2266 Q264.2656,27.0469 265.8594,27.0469 Q266.7969,27.0469 267.4531,26.7969 Q267.8438,26.6406 268.2656,26.2031 Q268.5313,25.9375 268.6797,25.8594 Q268.8281,25.7813 269.0313,25.7813 Q269.3594,25.7813 269.6172,26.0391 Q269.875,26.2969 269.875,26.6406 Q269.875,26.9844 269.5313,27.3906 Q269.0313,27.9688 268.2344,28.2969 Q267.1563,28.75 265.8594,28.75 Q264.3438,28.75 263.1406,28.125 Q262.1563,27.625 261.4688,26.5547 Q260.7813,25.4844 260.7813,24.2031 L260.7813,23.0469 Q260.7813,21.7188 261.3984,20.5703 Q262.0156,19.4219 263.1094,18.8047 Q264.2031,18.1875 265.4375,18.1875 Q266.1719,18.1875 266.8203,18.3516 Q267.4688,18.5156 268.0156,18.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="47" x="285.75" y="27.9102">Vehicule</text><line style="stroke:#A80036;stroke-width:1.5;" x1="195.5" x2="390.5" y1="39" y2="39"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="202.5" y="47"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="36" x="214.5" y="54.4189">couleur</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="202.5" y="60.8359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="26" x="214.5" y="68.2549">poids</text><line style="stroke:#A80036;stroke-width:1.5;" x1="195.5" x2="390.5" y1="74.6719" y2="74.6719"/><ellipse cx="205.5" cy="85.6719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="36" x="214.5" y="90.0908">rouler()</text><ellipse cx="205.5" cy="99.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="171" x="214.5" y="103.9268">ajouter_personne(poids_personne)</text><!--MD5=[eee3479087477522beb4e41bfe9ad78b]
+class Quatre_roues--><rect codeline="15" fill="#FEFECE" filter="url(#f5ioey0fbbus7)" height="75.6719" id="Quatre_roues" style="stroke:#A80036;stroke-width:1.5;" width="116" x="146" y="170"/><ellipse cx="164.6" cy="186" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M167.3656,181.875 Q167.5219,181.6563 167.7094,181.5469 Q167.8969,181.4375 168.1156,181.4375 Q168.4906,181.4375 168.725,181.6953 Q168.9594,181.9531 168.9594,182.5625 L168.9594,184.0156 Q168.9594,184.625 168.725,184.8906 Q168.4906,185.1563 168.1156,185.1563 Q167.7719,185.1563 167.5688,184.9531 Q167.3656,184.7656 167.2563,184.25 Q167.2094,183.8906 167.0219,183.7031 Q166.6938,183.3281 166.0844,183.1094 Q165.475,182.8906 164.85,182.8906 Q164.0844,182.8906 163.4516,183.2188 Q162.8188,183.5469 162.3266,184.2969 Q161.8344,185.0469 161.8344,186.0781 L161.8344,187.1719 Q161.8344,188.4063 162.725,189.2266 Q163.6156,190.0469 165.2094,190.0469 Q166.1469,190.0469 166.8031,189.7969 Q167.1938,189.6406 167.6156,189.2031 Q167.8813,188.9375 168.0297,188.8594 Q168.1781,188.7813 168.3813,188.7813 Q168.7094,188.7813 168.9672,189.0391 Q169.225,189.2969 169.225,189.6406 Q169.225,189.9844 168.8813,190.3906 Q168.3813,190.9688 167.5844,191.2969 Q166.5063,191.75 165.2094,191.75 Q163.6938,191.75 162.4906,191.125 Q161.5063,190.625 160.8188,189.5547 Q160.1313,188.4844 160.1313,187.2031 L160.1313,186.0469 Q160.1313,184.7188 160.7484,183.5703 Q161.3656,182.4219 162.4594,181.8047 Q163.5531,181.1875 164.7875,181.1875 Q165.5219,181.1875 166.1703,181.3516 Q166.8188,181.5156 167.3656,181.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="76" x="179.4" y="190.9102">Quatre_roues</text><line style="stroke:#A80036;stroke-width:1.5;" x1="147" x2="261" y1="202" y2="202"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="154" y="210"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="67" x="166" y="217.4189">nombre_porte</text><line style="stroke:#A80036;stroke-width:1.5;" x1="147" x2="261" y1="223.8359" y2="223.8359"/><ellipse cx="157" cy="234.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="90" x="166" y="239.2549">repeindre(couleur)</text><!--MD5=[15ece1389be97c2f94373f770eba80a8]
+class Deux_roues--><rect codeline="20" fill="#FEFECE" filter="url(#f5ioey0fbbus7)" height="75.6719" id="Deux_roues" style="stroke:#A80036;stroke-width:1.5;" width="171" x="297.5" y="170"/><ellipse cx="345.25" cy="186" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M348.0156,181.875 Q348.1719,181.6563 348.3594,181.5469 Q348.5469,181.4375 348.7656,181.4375 Q349.1406,181.4375 349.375,181.6953 Q349.6094,181.9531 349.6094,182.5625 L349.6094,184.0156 Q349.6094,184.625 349.375,184.8906 Q349.1406,185.1563 348.7656,185.1563 Q348.4219,185.1563 348.2188,184.9531 Q348.0156,184.7656 347.9063,184.25 Q347.8594,183.8906 347.6719,183.7031 Q347.3438,183.3281 346.7344,183.1094 Q346.125,182.8906 345.5,182.8906 Q344.7344,182.8906 344.1016,183.2188 Q343.4688,183.5469 342.9766,184.2969 Q342.4844,185.0469 342.4844,186.0781 L342.4844,187.1719 Q342.4844,188.4063 343.375,189.2266 Q344.2656,190.0469 345.8594,190.0469 Q346.7969,190.0469 347.4531,189.7969 Q347.8438,189.6406 348.2656,189.2031 Q348.5313,188.9375 348.6797,188.8594 Q348.8281,188.7813 349.0313,188.7813 Q349.3594,188.7813 349.6172,189.0391 Q349.875,189.2969 349.875,189.6406 Q349.875,189.9844 349.5313,190.3906 Q349.0313,190.9688 348.2344,191.2969 Q347.1563,191.75 345.8594,191.75 Q344.3438,191.75 343.1406,191.125 Q342.1563,190.625 341.4688,189.5547 Q340.7813,188.4844 340.7813,187.2031 L340.7813,186.0469 Q340.7813,184.7188 341.3984,183.5703 Q342.0156,182.4219 343.1094,181.8047 Q344.2031,181.1875 345.4375,181.1875 Q346.1719,181.1875 346.8203,181.3516 Q347.4688,181.5156 348.0156,181.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="67" x="365.75" y="190.9102">Deux_roues</text><line style="stroke:#A80036;stroke-width:1.5;" x1="298.5" x2="467.5" y1="202" y2="202"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="305.5" y="210"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="44" x="317.5" y="217.4189">cylindree</text><line style="stroke:#A80036;stroke-width:1.5;" x1="298.5" x2="467.5" y1="223.8359" y2="223.8359"/><ellipse cx="308.5" cy="234.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="145" x="317.5" y="239.2549">mettre_essence(nombre_litre)</text><!--MD5=[1d3308a050e4b472ad871965582028ae]
+class Voiture--><rect codeline="25" fill="#FEFECE" filter="url(#f5ioey0fbbus7)" height="89.5078" id="Voiture" style="stroke:#A80036;stroke-width:1.5;" width="168" x="7" y="306"/><ellipse cx="67.75" cy="322" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M70.5156,317.875 Q70.6719,317.6563 70.8594,317.5469 Q71.0469,317.4375 71.2656,317.4375 Q71.6406,317.4375 71.875,317.6953 Q72.1094,317.9531 72.1094,318.5625 L72.1094,320.0156 Q72.1094,320.625 71.875,320.8906 Q71.6406,321.1563 71.2656,321.1563 Q70.9219,321.1563 70.7188,320.9531 Q70.5156,320.7656 70.4063,320.25 Q70.3594,319.8906 70.1719,319.7031 Q69.8438,319.3281 69.2344,319.1094 Q68.625,318.8906 68,318.8906 Q67.2344,318.8906 66.6016,319.2188 Q65.9688,319.5469 65.4766,320.2969 Q64.9844,321.0469 64.9844,322.0781 L64.9844,323.1719 Q64.9844,324.4063 65.875,325.2266 Q66.7656,326.0469 68.3594,326.0469 Q69.2969,326.0469 69.9531,325.7969 Q70.3438,325.6406 70.7656,325.2031 Q71.0313,324.9375 71.1797,324.8594 Q71.3281,324.7813 71.5313,324.7813 Q71.8594,324.7813 72.1172,325.0391 Q72.375,325.2969 72.375,325.6406 Q72.375,325.9844 72.0313,326.3906 Q71.5313,326.9688 70.7344,327.2969 Q69.6563,327.75 68.3594,327.75 Q66.8438,327.75 65.6406,327.125 Q64.6563,326.625 63.9688,325.5547 Q63.2813,324.4844 63.2813,323.2031 L63.2813,322.0469 Q63.2813,320.7188 63.8984,319.5703 Q64.5156,318.4219 65.6094,317.8047 Q66.7031,317.1875 67.9375,317.1875 Q68.6719,317.1875 69.3203,317.3516 Q69.9688,317.5156 70.5156,317.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="38" x="88.25" y="326.9102">Voiture</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="174" y1="338" y2="338"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="346"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="98" x="27" y="353.4189">nombre_pneu_neige</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="174" y1="359.8359" y2="359.8359"/><ellipse cx="18" cy="370.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="139" x="27" y="375.2549">ajouter_pneu_neige(nombre)</text><ellipse cx="18" cy="384.6719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="142" x="27" y="389.0908">enlever_pneu_neige(nombre)</text><!--MD5=[3d5715e8ca76bbaa71360b4a707d5f4c]
+class Camion--><rect codeline="31" fill="#FEFECE" filter="url(#f5ioey0fbbus7)" height="75.6719" id="Camion" style="stroke:#A80036;stroke-width:1.5;" width="213" x="210.5" y="313"/><ellipse cx="290.75" cy="329" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M293.5156,324.875 Q293.6719,324.6563 293.8594,324.5469 Q294.0469,324.4375 294.2656,324.4375 Q294.6406,324.4375 294.875,324.6953 Q295.1094,324.9531 295.1094,325.5625 L295.1094,327.0156 Q295.1094,327.625 294.875,327.8906 Q294.6406,328.1563 294.2656,328.1563 Q293.9219,328.1563 293.7188,327.9531 Q293.5156,327.7656 293.4063,327.25 Q293.3594,326.8906 293.1719,326.7031 Q292.8438,326.3281 292.2344,326.1094 Q291.625,325.8906 291,325.8906 Q290.2344,325.8906 289.6016,326.2188 Q288.9688,326.5469 288.4766,327.2969 Q287.9844,328.0469 287.9844,329.0781 L287.9844,330.1719 Q287.9844,331.4063 288.875,332.2266 Q289.7656,333.0469 291.3594,333.0469 Q292.2969,333.0469 292.9531,332.7969 Q293.3438,332.6406 293.7656,332.2031 Q294.0313,331.9375 294.1797,331.8594 Q294.3281,331.7813 294.5313,331.7813 Q294.8594,331.7813 295.1172,332.0391 Q295.375,332.2969 295.375,332.6406 Q295.375,332.9844 295.0313,333.3906 Q294.5313,333.9688 293.7344,334.2969 Q292.6563,334.75 291.3594,334.75 Q289.8438,334.75 288.6406,334.125 Q287.6563,333.625 286.9688,332.5547 Q286.2813,331.4844 286.2813,330.2031 L286.2813,329.0469 Q286.2813,327.7188 286.8984,326.5703 Q287.5156,325.4219 288.6094,324.8047 Q289.7031,324.1875 290.9375,324.1875 Q291.6719,324.1875 292.3203,324.3516 Q292.9688,324.5156 293.5156,324.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="44" x="311.25" y="333.9102">Camion</text><line style="stroke:#A80036;stroke-width:1.5;" x1="211.5" x2="422.5" y1="345" y2="345"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="218.5" y="353"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="42" x="230.5" y="360.4189">longueur</text><line style="stroke:#A80036;stroke-width:1.5;" x1="211.5" x2="422.5" y1="366.8359" y2="366.8359"/><ellipse cx="221.5" cy="377.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="187" x="230.5" y="382.2549">ajouter_remorque(longueur_remorque)</text><path d="M427,12.5 L427,104.2578 L619,104.2578 L619,22.5 L609,12.5 L427,12.5 " fill="#FBFB77" filter="url(#f5ioey0fbbus7)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M609,12.5 L609,22.5 L619,22.5 L609,12.5 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" text-decoration="underline" textLength="56" x="433" y="30.9951">L&#xE9;gende</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="0" x="437" y="47.3467"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="433" y="63.6982">C entour&#xE9; : classe</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="171" x="433" y="80.0498">Carr&#xE9; rouge : attribut publique</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="164" x="433" y="96.4014">Rond vert: m&#xE9;thode publique</text><!--MD5=[19591099d6677db095caf72cb138d76b]
+reverse link Vehicule to Quatre_roues--><path codeline="2" d="M251.9,127.62 C243.17,142.09 234.26,156.85 226.53,169.66 " fill="none" id="Vehicule-backto-Quatre_roues" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="246.05,123.77,262.37,110.26,258.03,131,246.05,123.77" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[5e95bf647cf95590e7a6ef9cf1e4038d]
+reverse link Vehicule to Deux_roues--><path codeline="3" d="M334.56,127.62 C343.39,142.09 352.4,156.85 360.21,169.66 " fill="none" id="Vehicule-backto-Deux_roues" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="328.41,130.98,323.97,110.26,340.37,123.69,328.41,130.98" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[899c2436c78b10e367d56d668103d2f0]
+reverse link Quatre_roues to Voiture--><path codeline="5" d="M161.65,261.85 C150.01,276.37 137.51,291.96 126.32,305.93 " fill="none" id="Quatre_roues-backto-Voiture" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="156.34,257.28,174.31,246.05,167.27,266.03,156.34,257.28" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[bfe6afef911ad9a2ddb46c0b95a856ca]
+reverse link Quatre_roues to Camion--><path codeline="6" d="M246.25,261.72 C259.84,278.67 274.61,297.1 287.12,312.71 " fill="none" id="Quatre_roues-backto-Camion" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="240.73,266.03,233.69,246.05,251.66,257.28,240.73,266.03" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[58d140ff0ff3974cc1facfa74404a129]
+@startuml
+
+Vehicule <|- - Quatre_roues
+Vehicule <|- - Deux_roues
+
+Quatre_roues <|- - Voiture
+Quatre_roues <|- - Camion
+
+class Vehicule {
+    - couleur
+    - poids
+    + rouler()
+    + ajouter_personne(poids_personne)
+}
+
+class Quatre_roues {
+    - nombre_porte
+    + repeindre(couleur)
+}
+
+class Deux_roues {
+    - cylindree
+    + mettre_essence(nombre_litre)
+}
+
+class Voiture {
+    - nombre_pneu_neige
+    + ajouter_pneu_neige(nombre)
+    + enlever_pneu_neige(nombre)
+}
+
+class Camion {
+    - longueur
+    + ajouter_remorque(longueur_remorque)
+}
+
+note as N1
+    <b><u>Légende</u></b>
+
+    C entouré : classe
+    Carré rouge : attribut publique
+    Rond vert: méthode publique
+end note
+@enduml
+
+PlantUML version 1.2021.12(Tue Oct 05 18:01:58 CEST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: fr
+Country: FR
+--></g></svg></p><h2 class="mume-header" id="-partie-2-">Partie 2</h2>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour r&#xE9;aliser cette partie, vous devez avoir vu les chapitres du cours &#xAB; Les classes &#xBB; et &#xAB; L&#x2019;h&#xE9;ritage &#xBB;.</p>
+</div>
+<p>Cr&#xE9;er les accesseurs de tous les attributs. Cr&#xE9;er un constructeur dans la classe <code>Vehicule</code> prenant en param&#xE8;tres la couleur et le poids. Modifier la m&#xE9;thode <code>rouler()</code> pour qu&#x2019;elle affiche &quot;Le v&#xE9;hicule roule&quot;. Modifier la m&#xE9;thode <code>ajouter_personne(poids_personne)</code> pour qu&#x2019;elle change le poids du v&#xE9;hicule en fonction du poids de la personne pass&#xE9; en param&#xE8;tre.</p>
+<p>Cr&#xE9;er une page <em>affichage.php</em> cr&#xE9;ant un v&#xE9;hicule noir de 1500 kg. Le faire rouler.</p>
+<p>Ajouter une personne de 70 kg et afficher le nouveau poids du v&#xE9;hicule.</p>
+<h2 class="mume-header" id="-partie-3-">Partie 3</h2>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour r&#xE9;aliser cette partie, vous devez avoir vu les chapitres du cours &#xAB; Les classes &#xBB; et &#xAB; L&#x2019;h&#xE9;ritage &#xBB;.</p>
+</div>
+<p>Impl&#xE9;menter la m&#xE9;thode <code>repeindre(couleur)</code> pour changer la couleur d&#xE9;finie dans la classe <code>Vehicule</code>. Impl&#xE9;menter la m&#xE9;thode <code>mettre_essence(nombre_litre)</code> pour changer le poids d&#xE9;fini dans la classe <code>Vehicule</code>. Pour cet exercice, un litre correspond &#xE0; un kilogramme.</p>
+<p>Impl&#xE9;menter les m&#xE9;thodes <code>ajouter_pneu_neige(nombre)</code> et <code>enlever_pneu_neige(nombre)</code> modifiant l&#x2019;attribut <code>nombre_pneu_neige</code>.</p>
+<p>Impl&#xE9;menter la m&#xE9;thode <code>ajouter_remorque(longueur_remorque)</code> modifiant l&#x2019;attribut <code>longueur</code>.</p>
+<p>Dans la page <em>affichage.php</em>, cr&#xE9;er une voiture verte de 1400 kg. Ajouter deux personnes de 65 kg chacune. Afficher sa couleur et son nouveau poids.</p>
+<p>Repeindre la voiture en rouge et ajouter deux pneus neige.</p>
+<p>Afficher sa couleur et son nombre de pneus neige.</p>
+<p>Cr&#xE9;er un objet <code>Deux_roues</code> noir de 120 kg. Ajouter une personne de 80 kg. Mettre 20 litres d&#x2019;essence.</p>
+<p>Afficher la couleur et le poids du deux-roues.</p>
+<p>Cr&#xE9;er un camion bleu de 10000 kg d&#x2019;une longueur de 10 m&#xE8;tres avec 2 portes. Lui ajouter une remorque de 5 m&#xE8;tres et une personne de 80 kg.</p>
+<p>Afficher sa couleur, son poids, sa longueur et son nombre de portes.</p>
+<h2 class="mume-header" id="-partie-4-">Partie 4</h2>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour r&#xE9;aliser cette partie, vous devez avoir vu les chapitres du cours &#xAB; Les classes abstraites &#xBB; et &#xAB; Substitution de m&#xE9;thodes abstraites &#xBB;.</p>
+</div>
+<p>Rendre la classe <code>Vehicule</code> et sa m&#xE9;thode <code>ajouter_personne(poids_personne)</code> abstraites.</p>
+<p>D&#xE9;finir la m&#xE9;thode <code>ajouter_personne(poids_personne)</code> dans la classe <code>Deux_roues</code> pour que cette m&#xE9;thode ajoute le poids de la personne plus 2 kg correspondant au casque du deux-roues.</p>
+<p>D&#xE9;finir la m&#xE9;thode <code>ajouter_personne(poids_personne)</code> dans la classe <code>Quatre_roues</code> pour effectuer la m&#xEA;me chose que ce qu&#x2019;elle faisait dans la classe <code>Vehicule</code>.</p>
+<p>Cr&#xE9;er une m&#xE9;thode publique statique dans la classe <code>Vehicule</code> s&#x2019;appelant <code>afficher_attribut()</code>.</p>
+<p>Cette m&#xE9;thode prend un objet en param&#xE8;tre et affiche la valeur de tous ses attributs (s&#x2019;ils existent), c&#x2019;est-&#xE0;-dire la couleur, le poids, le nombre de portes, la cylindr&#xE9;e, la longueur et le nombre de pneus neige.</p>
+<p>Dans la page <em>affichage.php</em> cr&#xE9;er un deux-roues rouge de 150 kg.</p>
+<p>Ajouter une personne de 70 kg et afficher son poids total.</p>
+<p>Changer la couleur du deux-roues en vert. Lui affecter une cylindr&#xE9;e de 1000.</p>
+<p>Afficher toutes les valeurs des attributs du deux-roues &#xE0; l&#x2019;aide de la m&#xE9;thode <code>afficher_attribut()</code>.</p>
+<p>Cr&#xE9;er un camion blanc de 6000 kg.</p>
+<p>Lui ajouter une personne de 84 kg. Le repeindre en bleu. Lui affecter 2 portes.</p>
+<p>Afficher toutes les valeurs des attributs du camion &#xE0; l&#x2019;aide la m&#xE9;thode <code>afficher_attribut()</code>.</p>
+<h2 class="mume-header" id="-partie-5-">Partie 5</h2>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour r&#xE9;aliser cette partie, vous devez avoir vu les chapitres du cours &#xAB; Les classes abstraites &#xBB; et &#xAB; Substitution de m&#xE9;thodes abstraites &#xBB;.</p>
+</div>
+<p>Ajouter un constructeur dans la classe <code>Quatre_roues</code> prenant en param&#xE8;tres la couleur, le poids et le nombre de portes.</p>
+<p>Substituer la m&#xE9;thode publique <code>ajouter_personne(poids_personne)</code> dans la classe <code>Voiture</code>. Cette m&#xE9;thode ex&#xE9;cute la m&#xE9;thode <code>ajouter_personne(poids_personne)</code> de la classe <code>Quatre_roues</code> et affiche &quot;Attention, veuillez mettre 4 pneus neige.&quot; si le poids total du v&#xE9;hicule est sup&#xE9;rieur ou &#xE9;gal &#xE0; 1500 kg et s&#x2019;il y a 2 pneus neige ou moins.</p>
+<p>Ajouter une constante <code>SAUT_DE_LIGNE = &quot;&lt;br&gt;&quot;</code> dans la classe Vehicule et modifier la m&#xE9;thode <code>afficher_attribut($objet)</code> pour remplacer les <code>&lt;br&gt;</code>.</p>
+<p>Ajouter un attribut prot&#xE9;g&#xE9; statique dans cette classe s&#x2019;appelant <code>nombre_changement_couleur</code> et l&#x2019;initialiser &#xE0; 0. Cet attribut repr&#xE9;sente le nombre de fois que la couleur va changer quel que soit l&#x2019;objet dont vous changez la couleur. Ce changement de couleur s&#x2019;effectue dans la m&#xE9;thode <code>setCouleur()</code>.</p>
+<p>Changer l&#x2019;accesseur <code>setPoids()</code> de la classe <code>Vehicule</code> pour que le poids total de la voiture fasse au maximum 2100 kg.</p>
+<p>Dans la page <em>affichage.php</em> cr&#xE9;er une voiture verte, 2100 kg avec 4 portes.</p>
+<p>Ajouter 2 pneus neige puis ajouter une personne de 80 kg.</p>
+<p>Changer la couleur de la voiture en bleu.</p>
+<p>Enlever 4 pneus neige.</p>
+<p>Repeindre la voiture en noir.</p>
+<p>Afficher tous les attributs de la voiture et le nombre de fois o&#xF9; la couleur a &#xE9;t&#xE9; chang&#xE9;e avec la m&#xE9;thode <code>afficher_attribut($objet)</code>.</p>
+<p>Le nouveau mod&#xE8;le est :</p>
+<p align="center" style="zoom:1.6"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="490px" preserveAspectRatio="none" style="width:730px;height:490px;background:#FFFFFF;" version="1.1" viewBox="0 0 730 490" width="730px" zoomAndPan="magnify"><defs><filter height="300%" id="fth5mxb6u8wws" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[b157ec9f1808b89c668ab80b58f83736]
+class Vehicule--><rect codeline="8" fill="#FEFECE" filter="url(#fth5mxb6u8wws)" height="117.1797" id="Vehicule" style="stroke:#A80036;stroke-width:1.5;" width="199" x="242" y="26"/><ellipse cx="313.25" cy="42" fill="#A9DCDF" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M315.4375,43.7656 L311.2969,43.7656 L310.875,44.7969 L311.2969,44.7969 Q311.9063,44.7969 312.1719,45.0313 Q312.4375,45.2656 312.4375,45.6563 Q312.4375,46.0313 312.1719,46.2656 Q311.9063,46.5 311.2969,46.5 L309,46.5 Q308.3906,46.5 308.1328,46.2656 Q307.875,46.0313 307.875,45.6406 Q307.875,45.2656 308.1484,45.0234 Q308.4219,44.7813 309.0469,44.7969 L311.7188,38.1406 L310.6094,38.1406 Q310,38.1406 309.7344,37.9063 Q309.4688,37.6719 309.4688,37.2813 Q309.4688,36.9063 309.7344,36.6719 Q310,36.4375 310.6094,36.4375 L314.2813,36.4375 L317.6719,44.7969 Q318.2656,44.7969 318.4531,44.9375 Q318.8438,45.2031 318.8438,45.6563 Q318.8438,46.0313 318.5859,46.2656 Q318.3281,46.5 317.7188,46.5 L315.4219,46.5 Q314.8125,46.5 314.5469,46.2656 Q314.2813,46.0313 314.2813,45.6406 Q314.2813,45.2656 314.5469,45.0313 Q314.8125,44.7969 315.4219,44.7969 L315.8438,44.7969 L315.4375,43.7656 Z M314.7188,42.0625 L313.3594,38.6875 L311.9844,42.0625 L314.7188,42.0625 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="48" x="333.75" y="46.9102">Vehicule</text><line style="stroke:#A80036;stroke-width:1.5;" x1="243" x2="440" y1="58" y2="58"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="250" y="66"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="36" x="262" y="73.4189">couleur</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="250" y="79.8359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="26" x="262" y="87.2549">poids</text><polygon fill="none" points="253,91.6719,257,95.6719,253,99.6719,249,95.6719" style="stroke:#B38D22;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" text-decoration="underline" textLength="143" x="262" y="101.0908">nombre_changement_couleur</text><line style="stroke:#A80036;stroke-width:1.5;" x1="243" x2="440" y1="107.5078" y2="107.5078"/><ellipse cx="253" cy="118.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="36" x="262" y="122.9268">rouler()</text><ellipse cx="253" cy="132.3438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="173" x="262" y="136.7627">ajouter_personne(poids_personne)</text><!--MD5=[eee3479087477522beb4e41bfe9ad78b]
+class Quatre_roues--><rect codeline="16" fill="#FEFECE" filter="url(#fth5mxb6u8wws)" height="89.5078" id="Quatre_roues" style="stroke:#A80036;stroke-width:1.5;" width="197" x="127" y="223"/><ellipse cx="183.25" cy="239" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M186.0156,234.875 Q186.1719,234.6563 186.3594,234.5469 Q186.5469,234.4375 186.7656,234.4375 Q187.1406,234.4375 187.375,234.6953 Q187.6094,234.9531 187.6094,235.5625 L187.6094,237.0156 Q187.6094,237.625 187.375,237.8906 Q187.1406,238.1563 186.7656,238.1563 Q186.4219,238.1563 186.2188,237.9531 Q186.0156,237.7656 185.9063,237.25 Q185.8594,236.8906 185.6719,236.7031 Q185.3438,236.3281 184.7344,236.1094 Q184.125,235.8906 183.5,235.8906 Q182.7344,235.8906 182.1016,236.2188 Q181.4688,236.5469 180.9766,237.2969 Q180.4844,238.0469 180.4844,239.0781 L180.4844,240.1719 Q180.4844,241.4063 181.375,242.2266 Q182.2656,243.0469 183.8594,243.0469 Q184.7969,243.0469 185.4531,242.7969 Q185.8438,242.6406 186.2656,242.2031 Q186.5313,241.9375 186.6797,241.8594 Q186.8281,241.7813 187.0313,241.7813 Q187.3594,241.7813 187.6172,242.0391 Q187.875,242.2969 187.875,242.6406 Q187.875,242.9844 187.5313,243.3906 Q187.0313,243.9688 186.2344,244.2969 Q185.1563,244.75 183.8594,244.75 Q182.3438,244.75 181.1406,244.125 Q180.1563,243.625 179.4688,242.5547 Q178.7813,241.4844 178.7813,240.2031 L178.7813,239.0469 Q178.7813,237.7188 179.3984,236.5703 Q180.0156,235.4219 181.1094,234.8047 Q182.2031,234.1875 183.4375,234.1875 Q184.1719,234.1875 184.8203,234.3516 Q185.4688,234.5156 186.0156,234.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="76" x="203.75" y="243.9102">Quatre_roues</text><line style="stroke:#A80036;stroke-width:1.5;" x1="128" x2="323" y1="255" y2="255"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="135" y="263"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="67" x="147" y="270.4189">nombre_porte</text><line style="stroke:#A80036;stroke-width:1.5;" x1="128" x2="323" y1="276.8359" y2="276.8359"/><ellipse cx="138" cy="287.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="90" x="147" y="292.2549">repeindre(couleur)</text><ellipse cx="138" cy="301.6719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="171" x="147" y="306.0908">ajouter_personne(poids_personne)</text><!--MD5=[15ece1389be97c2f94373f770eba80a8]
+class Deux_roues--><rect codeline="22" fill="#FEFECE" filter="url(#fth5mxb6u8wws)" height="89.5078" id="Deux_roues" style="stroke:#A80036;stroke-width:1.5;" width="197" x="359" y="223"/><ellipse cx="419.75" cy="239" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M422.5156,234.875 Q422.6719,234.6563 422.8594,234.5469 Q423.0469,234.4375 423.2656,234.4375 Q423.6406,234.4375 423.875,234.6953 Q424.1094,234.9531 424.1094,235.5625 L424.1094,237.0156 Q424.1094,237.625 423.875,237.8906 Q423.6406,238.1563 423.2656,238.1563 Q422.9219,238.1563 422.7188,237.9531 Q422.5156,237.7656 422.4063,237.25 Q422.3594,236.8906 422.1719,236.7031 Q421.8438,236.3281 421.2344,236.1094 Q420.625,235.8906 420,235.8906 Q419.2344,235.8906 418.6016,236.2188 Q417.9688,236.5469 417.4766,237.2969 Q416.9844,238.0469 416.9844,239.0781 L416.9844,240.1719 Q416.9844,241.4063 417.875,242.2266 Q418.7656,243.0469 420.3594,243.0469 Q421.2969,243.0469 421.9531,242.7969 Q422.3438,242.6406 422.7656,242.2031 Q423.0313,241.9375 423.1797,241.8594 Q423.3281,241.7813 423.5313,241.7813 Q423.8594,241.7813 424.1172,242.0391 Q424.375,242.2969 424.375,242.6406 Q424.375,242.9844 424.0313,243.3906 Q423.5313,243.9688 422.7344,244.2969 Q421.6563,244.75 420.3594,244.75 Q418.8438,244.75 417.6406,244.125 Q416.6563,243.625 415.9688,242.5547 Q415.2813,241.4844 415.2813,240.2031 L415.2813,239.0469 Q415.2813,237.7188 415.8984,236.5703 Q416.5156,235.4219 417.6094,234.8047 Q418.7031,234.1875 419.9375,234.1875 Q420.6719,234.1875 421.3203,234.3516 Q421.9688,234.5156 422.5156,234.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="67" x="440.25" y="243.9102">Deux_roues</text><line style="stroke:#A80036;stroke-width:1.5;" x1="360" x2="555" y1="255" y2="255"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="367" y="263"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="44" x="379" y="270.4189">cylindree</text><line style="stroke:#A80036;stroke-width:1.5;" x1="360" x2="555" y1="276.8359" y2="276.8359"/><ellipse cx="370" cy="287.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="145" x="379" y="292.2549">mettre_essence(nombre_litre)</text><ellipse cx="370" cy="301.6719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="171" x="379" y="306.0908">ajouter_personne(poids_personne)</text><!--MD5=[1d3308a050e4b472ad871965582028ae]
+class Voiture--><rect codeline="28" fill="#FEFECE" filter="url(#fth5mxb6u8wws)" height="103.3438" id="Voiture" style="stroke:#A80036;stroke-width:1.5;" width="197" x="7" y="373"/><ellipse cx="82.25" cy="389" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M85.0156,384.875 Q85.1719,384.6563 85.3594,384.5469 Q85.5469,384.4375 85.7656,384.4375 Q86.1406,384.4375 86.375,384.6953 Q86.6094,384.9531 86.6094,385.5625 L86.6094,387.0156 Q86.6094,387.625 86.375,387.8906 Q86.1406,388.1563 85.7656,388.1563 Q85.4219,388.1563 85.2188,387.9531 Q85.0156,387.7656 84.9063,387.25 Q84.8594,386.8906 84.6719,386.7031 Q84.3438,386.3281 83.7344,386.1094 Q83.125,385.8906 82.5,385.8906 Q81.7344,385.8906 81.1016,386.2188 Q80.4688,386.5469 79.9766,387.2969 Q79.4844,388.0469 79.4844,389.0781 L79.4844,390.1719 Q79.4844,391.4063 80.375,392.2266 Q81.2656,393.0469 82.8594,393.0469 Q83.7969,393.0469 84.4531,392.7969 Q84.8438,392.6406 85.2656,392.2031 Q85.5313,391.9375 85.6797,391.8594 Q85.8281,391.7813 86.0313,391.7813 Q86.3594,391.7813 86.6172,392.0391 Q86.875,392.2969 86.875,392.6406 Q86.875,392.9844 86.5313,393.3906 Q86.0313,393.9688 85.2344,394.2969 Q84.1563,394.75 82.8594,394.75 Q81.3438,394.75 80.1406,394.125 Q79.1563,393.625 78.4688,392.5547 Q77.7813,391.4844 77.7813,390.2031 L77.7813,389.0469 Q77.7813,387.7188 78.3984,386.5703 Q79.0156,385.4219 80.1094,384.8047 Q81.2031,384.1875 82.4375,384.1875 Q83.1719,384.1875 83.8203,384.3516 Q84.4688,384.5156 85.0156,384.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="38" x="102.75" y="393.9102">Voiture</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="203" y1="405" y2="405"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="413"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="98" x="27" y="420.4189">nombre_pneu_neige</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="203" y1="426.8359" y2="426.8359"/><ellipse cx="18" cy="437.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="139" x="27" y="442.2549">ajouter_pneu_neige(nombre)</text><ellipse cx="18" cy="451.6719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="142" x="27" y="456.0908">enlever_pneu_neige(nombre)</text><ellipse cx="18" cy="465.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="171" x="27" y="469.9268">ajouter_personne(poids_personne)</text><!--MD5=[3d5715e8ca76bbaa71360b4a707d5f4c]
+class Camion--><rect codeline="35" fill="#FEFECE" filter="url(#fth5mxb6u8wws)" height="75.6719" id="Camion" style="stroke:#A80036;stroke-width:1.5;" width="213" x="239" y="386.5"/><ellipse cx="319.25" cy="402.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M322.0156,398.375 Q322.1719,398.1563 322.3594,398.0469 Q322.5469,397.9375 322.7656,397.9375 Q323.1406,397.9375 323.375,398.1953 Q323.6094,398.4531 323.6094,399.0625 L323.6094,400.5156 Q323.6094,401.125 323.375,401.3906 Q323.1406,401.6563 322.7656,401.6563 Q322.4219,401.6563 322.2188,401.4531 Q322.0156,401.2656 321.9063,400.75 Q321.8594,400.3906 321.6719,400.2031 Q321.3438,399.8281 320.7344,399.6094 Q320.125,399.3906 319.5,399.3906 Q318.7344,399.3906 318.1016,399.7188 Q317.4688,400.0469 316.9766,400.7969 Q316.4844,401.5469 316.4844,402.5781 L316.4844,403.6719 Q316.4844,404.9063 317.375,405.7266 Q318.2656,406.5469 319.8594,406.5469 Q320.7969,406.5469 321.4531,406.2969 Q321.8438,406.1406 322.2656,405.7031 Q322.5313,405.4375 322.6797,405.3594 Q322.8281,405.2813 323.0313,405.2813 Q323.3594,405.2813 323.6172,405.5391 Q323.875,405.7969 323.875,406.1406 Q323.875,406.4844 323.5313,406.8906 Q323.0313,407.4688 322.2344,407.7969 Q321.1563,408.25 319.8594,408.25 Q318.3438,408.25 317.1406,407.625 Q316.1563,407.125 315.4688,406.0547 Q314.7813,404.9844 314.7813,403.7031 L314.7813,402.5469 Q314.7813,401.2188 315.3984,400.0703 Q316.0156,398.9219 317.1094,398.3047 Q318.2031,397.6875 319.4375,397.6875 Q320.1719,397.6875 320.8203,397.8516 Q321.4688,398.0156 322.0156,398.375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="44" x="339.75" y="407.4102">Camion</text><line style="stroke:#A80036;stroke-width:1.5;" x1="240" x2="451" y1="418.5" y2="418.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="247" y="426.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="42" x="259" y="433.9189">longueur</text><line style="stroke:#A80036;stroke-width:1.5;" x1="240" x2="451" y1="440.3359" y2="440.3359"/><ellipse cx="250" cy="451.3359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="187" x="259" y="455.7549">ajouter_remorque(longueur_remorque)</text><path d="M476,6 L476,163.1641 L721,163.1641 L721,16 L711,6 L476,6 " fill="#FBFB77" filter="url(#fth5mxb6u8wws)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M711,6 L711,16 L721,16 L711,6 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" text-decoration="underline" textLength="56" x="482" y="24.4951">L&#xE9;gende</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="0" x="486" y="40.8467"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="482" y="57.1982">C entour&#xE9; : classe</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="160" x="482" y="73.5498">A entour&#xE9; : classe abstraite</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="171" x="482" y="89.9014">Carr&#xE9; rouge : attribut publique</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="183" x="482" y="106.2529">Losange jaune : attribut prot&#xE9;g&#xE9;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="164" x="482" y="122.6045">Rond vert: m&#xE9;thode publique</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="219" x="482" y="138.9561">Italique : attribut ou m&#xE9;thode abstraite</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="224" x="482" y="155.3076">Soulign&#xE9; : attribut ou m&#xE9;thode statique</text><!--MD5=[19591099d6677db095caf72cb138d76b]
+reverse link Vehicule to Quatre_roues--><path codeline="2" d="M293.73,160.24 C280.16,181.48 265.82,203.92 253.8,222.72 " fill="none" id="Vehicule-backto-Quatre_roues" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="287.97,156.26,304.64,143.18,299.77,163.8,287.97,156.26" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[5e95bf647cf95590e7a6ef9cf1e4038d]
+reverse link Vehicule to Deux_roues--><path codeline="3" d="M389.27,160.24 C402.84,181.48 417.18,203.92 429.2,222.72 " fill="none" id="Vehicule-backto-Deux_roues" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="383.23,163.8,378.36,143.18,395.03,156.26,383.23,163.8" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[899c2436c78b10e367d56d668103d2f0]
+reverse link Quatre_roues to Voiture--><path codeline="5" d="M178.78,329.15 C167.53,343.64 155.62,358.97 144.75,372.96 " fill="none" id="Quatre_roues-backto-Voiture" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="173.32,324.77,191.11,313.27,184.37,333.36,173.32,324.77" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[bfe6afef911ad9a2ddb46c0b95a856ca]
+reverse link Quatre_roues to Camion--><path codeline="6" d="M272.34,329.3 C287.26,348.51 303.32,369.2 316.59,386.27 " fill="none" id="Quatre_roues-backto-Camion" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="266.63,333.36,259.89,313.27,277.68,324.77,266.63,333.36" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[10806f1cd96c08a9e03532535e381a31]
+@startuml
+
+Vehicule <|- - Quatre_roues
+Vehicule <|- - Deux_roues
+
+Quatre_roues <|- - Voiture
+Quatre_roues <|- - Camion
+
+abstract class Vehicule {
+    - couleur
+    - poids
+    # {static} nombre_changement_couleur
+    + rouler()
+    + {abstract} ajouter_personne(poids_personne)
+}
+
+class Quatre_roues {
+    - nombre_porte
+    + repeindre(couleur)
+    + ajouter_personne(poids_personne)
+}
+
+class Deux_roues {
+    - cylindree
+    + mettre_essence(nombre_litre)
+    + ajouter_personne(poids_personne)
+}
+
+class Voiture {
+    - nombre_pneu_neige
+    + ajouter_pneu_neige(nombre)
+    + enlever_pneu_neige(nombre)
+    + ajouter_personne(poids_personne)
+}
+
+class Camion {
+    - longueur
+    + ajouter_remorque(longueur_remorque)
+}
+
+note as N1
+    <b><u>Légende</u></b>
+
+    C entouré : classe
+    A entouré : classe abstraite
+    Carré rouge : attribut publique
+    Losange jaune : attribut protégé
+    Rond vert: méthode publique
+    Italique : attribut ou méthode abstraite
+    Souligné : attribut ou méthode statique
+end note
+@enduml
+
+PlantUML version 1.2021.12(Tue Oct 05 18:01:58 CEST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: fr
+Country: FR
+--></g></svg></p><p>Les accesseurs ne sont pas repr&#xE9;sent&#xE9;s.</p>
+<h2 class="mume-header" id="-partie-6-">Partie 6</h2>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour r&#xE9;aliser cette partie, vous devez avoir vu le chapitre du cours &#xAB; Les interfaces &#xBB;.</p>
+</div>
+<p>Cr&#xE9;er une interface <code>Action</code> contenant la signature de m&#xE9;thode <code>mettre_essence(int $nombre_litre) :void</code></p>
+<p>Modifier la classe Camion pour qu&#x2019;elle impl&#xE9;mente l&#x2019;interface <code>Action</code> et donc red&#xE9;finisse la m&#xE9;hode <code>mettre_essence(int $nombre_litre) :void</code> comme dans la classe <code>Deux_roues</code>.</p>
+<p>Dans la page <em>affichage.php</em> cr&#xE9;er un camion bleu, 10000 kg avec 2 portes.</p>
+<p>Fixer la longueur &#xE0; 10 m.</p>
+<p>Mettre 100 litres d&#x2019;essence.</p>
+<p>Repeindre le camion en vert.</p>
+<p>Afficher tous les attributs de la voiture et le nombre de fois o&#xF9; la couleur a &#xE9;t&#xE9; chang&#xE9;e avec la m&#xE9;thode <code>afficher_attribut($objet)</code>.</p>
+<p>Le nouveau mod&#xE8;le est :</p>
+<p align="center" style="zoom:1.6"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="507px" preserveAspectRatio="none" style="width:656px;height:507px;background:#FFFFFF;" version="1.1" viewBox="0 0 656 507" width="656px" zoomAndPan="magnify"><defs><filter height="300%" id="f1gmusk4twv1bp" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[b157ec9f1808b89c668ab80b58f83736]
+class Vehicule--><rect codeline="10" fill="#FEFECE" filter="url(#f1gmusk4twv1bp)" height="117.1797" id="Vehicule" style="stroke:#A80036;stroke-width:1.5;" width="199" x="122" y="34.5"/><ellipse cx="193.25" cy="50.5" fill="#A9DCDF" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M195.4375,52.2656 L191.2969,52.2656 L190.875,53.2969 L191.2969,53.2969 Q191.9063,53.2969 192.1719,53.5313 Q192.4375,53.7656 192.4375,54.1563 Q192.4375,54.5313 192.1719,54.7656 Q191.9063,55 191.2969,55 L189,55 Q188.3906,55 188.1328,54.7656 Q187.875,54.5313 187.875,54.1406 Q187.875,53.7656 188.1484,53.5234 Q188.4219,53.2813 189.0469,53.2969 L191.7188,46.6406 L190.6094,46.6406 Q190,46.6406 189.7344,46.4063 Q189.4688,46.1719 189.4688,45.7813 Q189.4688,45.4063 189.7344,45.1719 Q190,44.9375 190.6094,44.9375 L194.2813,44.9375 L197.6719,53.2969 Q198.2656,53.2969 198.4531,53.4375 Q198.8438,53.7031 198.8438,54.1563 Q198.8438,54.5313 198.5859,54.7656 Q198.3281,55 197.7188,55 L195.4219,55 Q194.8125,55 194.5469,54.7656 Q194.2813,54.5313 194.2813,54.1406 Q194.2813,53.7656 194.5469,53.5313 Q194.8125,53.2969 195.4219,53.2969 L195.8438,53.2969 L195.4375,52.2656 Z M194.7188,50.5625 L193.3594,47.1875 L191.9844,50.5625 L194.7188,50.5625 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="48" x="213.75" y="55.4102">Vehicule</text><line style="stroke:#A80036;stroke-width:1.5;" x1="123" x2="320" y1="66.5" y2="66.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="130" y="74.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="36" x="142" y="81.9189">couleur</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="130" y="88.3359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="26" x="142" y="95.7549">poids</text><polygon fill="none" points="133,100.1719,137,104.1719,133,108.1719,129,104.1719" style="stroke:#B38D22;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" text-decoration="underline" textLength="143" x="142" y="109.5908">nombre_changement_couleur</text><line style="stroke:#A80036;stroke-width:1.5;" x1="123" x2="320" y1="116.0078" y2="116.0078"/><ellipse cx="133" cy="127.0078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="36" x="142" y="131.4268">rouler()</text><ellipse cx="133" cy="140.8438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="173" x="142" y="145.2627">ajouter_personne(poids_personne)</text><!--MD5=[eee3479087477522beb4e41bfe9ad78b]
+class Quatre_roues--><rect codeline="18" fill="#FEFECE" filter="url(#f1gmusk4twv1bp)" height="89.5078" id="Quatre_roues" style="stroke:#A80036;stroke-width:1.5;" width="197" x="7" y="240"/><ellipse cx="63.25" cy="256" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M66.0156,251.875 Q66.1719,251.6563 66.3594,251.5469 Q66.5469,251.4375 66.7656,251.4375 Q67.1406,251.4375 67.375,251.6953 Q67.6094,251.9531 67.6094,252.5625 L67.6094,254.0156 Q67.6094,254.625 67.375,254.8906 Q67.1406,255.1563 66.7656,255.1563 Q66.4219,255.1563 66.2188,254.9531 Q66.0156,254.7656 65.9063,254.25 Q65.8594,253.8906 65.6719,253.7031 Q65.3438,253.3281 64.7344,253.1094 Q64.125,252.8906 63.5,252.8906 Q62.7344,252.8906 62.1016,253.2188 Q61.4688,253.5469 60.9766,254.2969 Q60.4844,255.0469 60.4844,256.0781 L60.4844,257.1719 Q60.4844,258.4063 61.375,259.2266 Q62.2656,260.0469 63.8594,260.0469 Q64.7969,260.0469 65.4531,259.7969 Q65.8438,259.6406 66.2656,259.2031 Q66.5313,258.9375 66.6797,258.8594 Q66.8281,258.7813 67.0313,258.7813 Q67.3594,258.7813 67.6172,259.0391 Q67.875,259.2969 67.875,259.6406 Q67.875,259.9844 67.5313,260.3906 Q67.0313,260.9688 66.2344,261.2969 Q65.1563,261.75 63.8594,261.75 Q62.3438,261.75 61.1406,261.125 Q60.1563,260.625 59.4688,259.5547 Q58.7813,258.4844 58.7813,257.2031 L58.7813,256.0469 Q58.7813,254.7188 59.3984,253.5703 Q60.0156,252.4219 61.1094,251.8047 Q62.2031,251.1875 63.4375,251.1875 Q64.1719,251.1875 64.8203,251.3516 Q65.4688,251.5156 66.0156,251.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="76" x="83.75" y="260.9102">Quatre_roues</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="203" y1="272" y2="272"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="280"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="67" x="27" y="287.4189">nombre_porte</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="203" y1="293.8359" y2="293.8359"/><ellipse cx="18" cy="304.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="90" x="27" y="309.2549">repeindre(couleur)</text><ellipse cx="18" cy="318.6719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="171" x="27" y="323.0908">ajouter_personne(poids_personne)</text><!--MD5=[15ece1389be97c2f94373f770eba80a8]
+class Deux_roues--><rect codeline="24" fill="#FEFECE" filter="url(#f1gmusk4twv1bp)" height="89.5078" id="Deux_roues" style="stroke:#A80036;stroke-width:1.5;" width="197" x="239" y="240"/><ellipse cx="299.75" cy="256" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M302.5156,251.875 Q302.6719,251.6563 302.8594,251.5469 Q303.0469,251.4375 303.2656,251.4375 Q303.6406,251.4375 303.875,251.6953 Q304.1094,251.9531 304.1094,252.5625 L304.1094,254.0156 Q304.1094,254.625 303.875,254.8906 Q303.6406,255.1563 303.2656,255.1563 Q302.9219,255.1563 302.7188,254.9531 Q302.5156,254.7656 302.4063,254.25 Q302.3594,253.8906 302.1719,253.7031 Q301.8438,253.3281 301.2344,253.1094 Q300.625,252.8906 300,252.8906 Q299.2344,252.8906 298.6016,253.2188 Q297.9688,253.5469 297.4766,254.2969 Q296.9844,255.0469 296.9844,256.0781 L296.9844,257.1719 Q296.9844,258.4063 297.875,259.2266 Q298.7656,260.0469 300.3594,260.0469 Q301.2969,260.0469 301.9531,259.7969 Q302.3438,259.6406 302.7656,259.2031 Q303.0313,258.9375 303.1797,258.8594 Q303.3281,258.7813 303.5313,258.7813 Q303.8594,258.7813 304.1172,259.0391 Q304.375,259.2969 304.375,259.6406 Q304.375,259.9844 304.0313,260.3906 Q303.5313,260.9688 302.7344,261.2969 Q301.6563,261.75 300.3594,261.75 Q298.8438,261.75 297.6406,261.125 Q296.6563,260.625 295.9688,259.5547 Q295.2813,258.4844 295.2813,257.2031 L295.2813,256.0469 Q295.2813,254.7188 295.8984,253.5703 Q296.5156,252.4219 297.6094,251.8047 Q298.7031,251.1875 299.9375,251.1875 Q300.6719,251.1875 301.3203,251.3516 Q301.9688,251.5156 302.5156,251.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="67" x="320.25" y="260.9102">Deux_roues</text><line style="stroke:#A80036;stroke-width:1.5;" x1="240" x2="435" y1="272" y2="272"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="247" y="280"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="44" x="259" y="287.4189">cylindree</text><line style="stroke:#A80036;stroke-width:1.5;" x1="240" x2="435" y1="293.8359" y2="293.8359"/><ellipse cx="250" cy="304.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="145" x="259" y="309.2549">mettre_essence(nombre_litre)</text><ellipse cx="250" cy="318.6719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="171" x="259" y="323.0908">ajouter_personne(poids_personne)</text><!--MD5=[1d3308a050e4b472ad871965582028ae]
+class Voiture--><rect codeline="30" fill="#FEFECE" filter="url(#f1gmusk4twv1bp)" height="103.3438" id="Voiture" style="stroke:#A80036;stroke-width:1.5;" width="197" x="7" y="390"/><ellipse cx="82.25" cy="406" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M85.0156,401.875 Q85.1719,401.6563 85.3594,401.5469 Q85.5469,401.4375 85.7656,401.4375 Q86.1406,401.4375 86.375,401.6953 Q86.6094,401.9531 86.6094,402.5625 L86.6094,404.0156 Q86.6094,404.625 86.375,404.8906 Q86.1406,405.1563 85.7656,405.1563 Q85.4219,405.1563 85.2188,404.9531 Q85.0156,404.7656 84.9063,404.25 Q84.8594,403.8906 84.6719,403.7031 Q84.3438,403.3281 83.7344,403.1094 Q83.125,402.8906 82.5,402.8906 Q81.7344,402.8906 81.1016,403.2188 Q80.4688,403.5469 79.9766,404.2969 Q79.4844,405.0469 79.4844,406.0781 L79.4844,407.1719 Q79.4844,408.4063 80.375,409.2266 Q81.2656,410.0469 82.8594,410.0469 Q83.7969,410.0469 84.4531,409.7969 Q84.8438,409.6406 85.2656,409.2031 Q85.5313,408.9375 85.6797,408.8594 Q85.8281,408.7813 86.0313,408.7813 Q86.3594,408.7813 86.6172,409.0391 Q86.875,409.2969 86.875,409.6406 Q86.875,409.9844 86.5313,410.3906 Q86.0313,410.9688 85.2344,411.2969 Q84.1563,411.75 82.8594,411.75 Q81.3438,411.75 80.1406,411.125 Q79.1563,410.625 78.4688,409.5547 Q77.7813,408.4844 77.7813,407.2031 L77.7813,406.0469 Q77.7813,404.7188 78.3984,403.5703 Q79.0156,402.4219 80.1094,401.8047 Q81.2031,401.1875 82.4375,401.1875 Q83.1719,401.1875 83.8203,401.3516 Q84.4688,401.5156 85.0156,401.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="38" x="102.75" y="410.9102">Voiture</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="203" y1="422" y2="422"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="430"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="98" x="27" y="437.4189">nombre_pneu_neige</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="203" y1="443.8359" y2="443.8359"/><ellipse cx="18" cy="454.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="139" x="27" y="459.2549">ajouter_pneu_neige(nombre)</text><ellipse cx="18" cy="468.6719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="142" x="27" y="473.0908">enlever_pneu_neige(nombre)</text><ellipse cx="18" cy="482.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="171" x="27" y="486.9268">ajouter_personne(poids_personne)</text><!--MD5=[3d5715e8ca76bbaa71360b4a707d5f4c]
+class Camion--><rect codeline="37" fill="#FEFECE" filter="url(#f1gmusk4twv1bp)" height="75.6719" id="Camion" style="stroke:#A80036;stroke-width:1.5;" width="213" x="344" y="403.5"/><ellipse cx="424.25" cy="419.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M427.0156,415.375 Q427.1719,415.1563 427.3594,415.0469 Q427.5469,414.9375 427.7656,414.9375 Q428.1406,414.9375 428.375,415.1953 Q428.6094,415.4531 428.6094,416.0625 L428.6094,417.5156 Q428.6094,418.125 428.375,418.3906 Q428.1406,418.6563 427.7656,418.6563 Q427.4219,418.6563 427.2188,418.4531 Q427.0156,418.2656 426.9063,417.75 Q426.8594,417.3906 426.6719,417.2031 Q426.3438,416.8281 425.7344,416.6094 Q425.125,416.3906 424.5,416.3906 Q423.7344,416.3906 423.1016,416.7188 Q422.4688,417.0469 421.9766,417.7969 Q421.4844,418.5469 421.4844,419.5781 L421.4844,420.6719 Q421.4844,421.9063 422.375,422.7266 Q423.2656,423.5469 424.8594,423.5469 Q425.7969,423.5469 426.4531,423.2969 Q426.8438,423.1406 427.2656,422.7031 Q427.5313,422.4375 427.6797,422.3594 Q427.8281,422.2813 428.0313,422.2813 Q428.3594,422.2813 428.6172,422.5391 Q428.875,422.7969 428.875,423.1406 Q428.875,423.4844 428.5313,423.8906 Q428.0313,424.4688 427.2344,424.7969 Q426.1563,425.25 424.8594,425.25 Q423.3438,425.25 422.1406,424.625 Q421.1563,424.125 420.4688,423.0547 Q419.7813,421.9844 419.7813,420.7031 L419.7813,419.5469 Q419.7813,418.2188 420.3984,417.0703 Q421.0156,415.9219 422.1094,415.3047 Q423.2031,414.6875 424.4375,414.6875 Q425.1719,414.6875 425.8203,414.8516 Q426.4688,415.0156 427.0156,415.375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="44" x="444.75" y="424.4102">Camion</text><line style="stroke:#A80036;stroke-width:1.5;" x1="345" x2="556" y1="435.5" y2="435.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="352" y="443.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="42" x="364" y="450.9189">longueur</text><line style="stroke:#A80036;stroke-width:1.5;" x1="345" x2="556" y1="457.3359" y2="457.3359"/><ellipse cx="355" cy="468.3359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="187" x="364" y="472.7549">ajouter_remorque(longueur_remorque)</text><!--MD5=[f8e7078f77c005d15b486c0c98deb1e6]
+class Action--><rect codeline="42" fill="#FEFECE" filter="url(#f1gmusk4twv1bp)" height="61.8359" id="Action" style="stroke:#A80036;stroke-width:1.5;" width="171" x="471" y="254"/><ellipse cx="535.25" cy="270" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M536.2031,266.6406 L536.2031,273.2969 L537.9219,273.2969 Q538.5313,273.2969 538.7969,273.5313 Q539.0625,273.7656 539.0625,274.1563 Q539.0625,274.5313 538.7969,274.7656 Q538.5313,275 537.9219,275 L532.7813,275 Q532.1719,275 531.9063,274.7656 Q531.6406,274.5313 531.6406,274.1406 Q531.6406,273.7656 531.9063,273.5313 Q532.1719,273.2969 532.7813,273.2969 L534.5,273.2969 L534.5,266.6406 L532.7813,266.6406 Q532.1719,266.6406 531.9063,266.4063 Q531.6406,266.1719 531.6406,265.7813 Q531.6406,265.4063 531.9063,265.1719 Q532.1719,264.9375 532.7813,264.9375 L537.9219,264.9375 Q538.5313,264.9375 538.7969,265.1719 Q539.0625,265.4063 539.0625,265.7813 Q539.0625,266.1719 538.7969,266.4063 Q538.5313,266.6406 537.9219,266.6406 L536.2031,266.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="34" x="555.75" y="274.9102">Action</text><line style="stroke:#A80036;stroke-width:1.5;" x1="472" x2="641" y1="286" y2="286"/><line style="stroke:#A80036;stroke-width:1.5;" x1="472" x2="641" y1="294" y2="294"/><ellipse cx="482" cy="305" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="145" x="491" y="309.4189">mettre_essence(nombre_litre)</text><path d="M356,6 L356,179.5156 L601,179.5156 L601,16 L591,6 L356,6 " fill="#FBFB77" filter="url(#f1gmusk4twv1bp)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M591,6 L591,16 L601,16 L591,6 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" text-decoration="underline" textLength="56" x="362" y="24.4951">L&#xE9;gende</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="0" x="366" y="40.8467"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="362" y="57.1982">C entour&#xE9; : classe</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="160" x="362" y="73.5498">A entour&#xE9; : classe abstraite</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="111" x="362" y="89.9014">I entour&#xE9; : interface</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="171" x="362" y="106.2529">Carr&#xE9; rouge : attribut publique</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="183" x="362" y="122.6045">Losange jaune : attribut prot&#xE9;g&#xE9;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="164" x="362" y="138.9561">Rond vert: m&#xE9;thode publique</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="219" x="362" y="155.3076">Italique : attribut ou m&#xE9;thode abstraite</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="224" x="362" y="171.6592">Soulign&#xE9; : attribut ou m&#xE9;thode statique</text><!--MD5=[19591099d6677db095caf72cb138d76b]
+reverse link Vehicule to Quatre_roues--><path codeline="2" d="M175.91,168.68 C161.17,192.81 145.32,218.78 132.39,239.95 " fill="none" id="Vehicule-backto-Quatre_roues" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="169.99,164.94,186.38,151.52,181.93,172.24,169.99,164.94" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[5e95bf647cf95590e7a6ef9cf1e4038d]
+reverse link Vehicule to Deux_roues--><path codeline="3" d="M267.09,168.68 C281.83,192.81 297.68,218.78 310.61,239.95 " fill="none" id="Vehicule-backto-Deux_roues" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="261.07,172.24,256.62,151.52,273.01,164.94,261.07,172.24" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[899c2436c78b10e367d56d668103d2f0]
+reverse link Quatre_roues to Voiture--><path codeline="5" d="M105.5,350.38 C105.5,363.59 105.5,377.32 105.5,389.96 " fill="none" id="Quatre_roues-backto-Voiture" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="98.5,350.27,105.5,330.27,112.5,350.27,98.5,350.27" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[bfe6afef911ad9a2ddb46c0b95a856ca]
+reverse link Quatre_roues to Camion--><path codeline="6" d="M222.2,338.26 C269.97,359.66 324.14,383.91 367.72,403.43 " fill="none" id="Quatre_roues-backto-Camion" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="219.29,344.63,203.9,330.07,225.02,331.85,219.29,344.63" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[91271bd76815ee884a494e4fc57eeb4b]
+reverse link Action to Camion--><path codeline="8" d="M524.37,332.84 C508.87,355.43 490.53,382.15 476.01,403.32 " fill="none" id="Action-backto-Camion" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="518.72,328.69,535.81,316.16,530.27,336.61,518.72,328.69" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[84e2d9bf646e00895aa6e3768c129c82]
+@startuml
+
+Vehicule <|- - Quatre_roues
+Vehicule <|- - Deux_roues
+
+Quatre_roues <|- - Voiture
+Quatre_roues <|- - Camion
+
+Action <|- - Camion
+
+abstract class Vehicule {
+    - couleur
+    - poids
+    # {static} nombre_changement_couleur
+    + rouler()
+    + {abstract} ajouter_personne(poids_personne)
+}
+
+class Quatre_roues {
+    - nombre_porte
+    + repeindre(couleur)
+    + ajouter_personne(poids_personne)
+}
+
+class Deux_roues {
+    - cylindree
+    + mettre_essence(nombre_litre)
+    + ajouter_personne(poids_personne)
+}
+
+class Voiture {
+    - nombre_pneu_neige
+    + ajouter_pneu_neige(nombre)
+    + enlever_pneu_neige(nombre)
+    + ajouter_personne(poids_personne)
+}
+
+class Camion {
+    - longueur
+    + ajouter_remorque(longueur_remorque)
+}
+
+interface Action {
+    + mettre_essence(nombre_litre)
+}
+
+note as N1
+    <b><u>Légende</u></b>
+
+    C entouré : classe
+    A entouré : classe abstraite
+    I entouré : interface
+    Carré rouge : attribut publique
+    Losange jaune : attribut protégé
+    Rond vert: méthode publique
+    Italique : attribut ou méthode abstraite
+    Souligné : attribut ou méthode statique
+end note
+@enduml
+
+PlantUML version 1.2021.12(Tue Oct 05 18:01:58 CEST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: fr
+Country: FR
+--></g></svg></p>
+      </div>
+      <div class="md-sidebar-toc">
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#-tp---la-poo-avec-php-" class="md-toc-link"><p>TP - La POO avec PHP</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-partie-1-" class="md-toc-link">
+            <p>Partie 1</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-partie-2-" class="md-toc-link">
+            <p>Partie 2</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-partie-3-" class="md-toc-link">
+            <p>Partie 3</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-partie-4-" class="md-toc-link">
+            <p>Partie 4</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-partie-5-" class="md-toc-link">
+            <p>Partie 5</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#-partie-6-" class="md-toc-link">
+            <p>Partie 6</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+</div>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>
